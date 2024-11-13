@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit User</title>
+</head>
+<body>
+    <h2>Edit User</h2>
+
+    <!-- Form for editing an existing user -->
+    <form th:action="@{/users/edit/{id}(id=${user.id})}" th:object="${user}" method="post">
+        <!-- First Name field -->
+        <label for="firstName" class="col-sm-2 col-form-label">First Name</label>
+        <input type="text" th:field="*{firstName}" required/><br/>
+
+        <!-- Last Name field -->
+        <label for="lastName" class="col-sm-2 col-form-label">Last Name</label>
+        <input type="text" th:field="*{lastName}" required/><br/>
+
+        <!-- Email field -->
+        <label for="email" class="col-sm-2 col-form-label">Email</label>
+        <input type="email" th:field="*{email}" required/><br/>
+
+        <!-- Password field (optional: can be left empty for no changes) -->
+        <label for="password" class="col-sm-2 col-form-label">Password (Leave blank to keep current password)</label>
+        <input type="password" th:field="*{password}"/><br/>
+
+        <!-- Submit button -->
+        <button type="submit" class="col-sm-2 col-form-label">Update User</button>
+    </form>
+
+    <br/>
+    <!-- Link to go back to the user list -->
+    <a href="/users">Back to User List</a>
+</body>
+</html>
